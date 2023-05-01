@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light On Off</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inconsolata",sans-serif;
+            height: 100vh;
+            background: #30336b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+        }
+        .light-bulb {
+            height: 15em;
+            width: auto;
+        }
+        button {
+            background: yellow;
+            border: 1px solid gray;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 15pt;
+            cursor: pointer;
+        }
+        button:hover {
+            background: rgb(115, 255, 0);
+            border: 1px solid rgb(97, 85, 85);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-heading">
+       <h1>Can you turn the light on?</h1>
+       <button onclick="document.getElementById('myImage').src = '/Images/light on.png'">Turn on the light</button>
+       <img src="/Images/light off.png" alt="Bulb picture on/off" title="Light is Trun off/on" id="myImage" class="light-bulb">
+       <button onclick="document.getElementById('myImage').src = '/Images/light off.png'">Turn off the light</button>
+
+    </div>
+</body>
+<script>
+
+</script>
+</html>

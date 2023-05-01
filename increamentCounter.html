@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+        * {
+            font-family: 'Mulish', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(24, 46, 101);
+            color: aliceblue;
+            display: flex;
+            place-content: center;
+            gap: 1.5em;
+            height: 100vh;
+            width: 100vw;
+            align-items: center;
+        }
+        .counter-container {
+            display: flex;
+            gap: .5em;
+            align-items: center;
+            flex-direction: column;
+            place-content: center;
+        }
+        #counter {
+            font-size: 50pt;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(221, 153, 28);
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <i class="fas fa-mug-hot fa-3x"></i>
+        <div id="counter" data-target="4000"></div>
+        <span>Project Completed</span>  
+    </div>
+    <div class="counter-container">
+        <i class="fas fa-users fa-3x"></i>
+        <div id="counter" data-target="15000"></div>
+        <span>Our Happy Client</span>  
+    </div>
+    <div class="counter-container">
+        <i class="fas fa-tasks fa-3x"></i>
+        <div id="counter" data-target="500"></div>
+        <span>On Going Projects</span>  
+    </div>
+    <script>
+        const counters = document.querySelectorAll('#counter');
+        counters.forEach((counter) => {
+            // console.log(counter);
+            counter.innerHTML = 0;
+            const updateCounter = () => {
+                const targetCount = counter.getAttribute('data-target');
+                // console.log(typeof(+targetCount));
+                // several ways to convert string to number
+                // var n = +str; (unary plus operator);
+                // var n = Number(str); => Number Constructure
+                // var n = parseFloat(str); 
+                const startingCount = Number(counter.innerHTML);
+                const incr = targetCount / 100;
+                if(startingCount < targetCount) {
+                    counter.innerHTML = `${Math.round(startingCount +  incr)}`;
+                    setTimeout(updateCounter, 10);
+                }else {
+                    counter.innerHTML = targetCount;
+                }
+
+            }
+            updateCounter();
+        })
+    </script>
+</body>
+</html>
+<!-- data-* attributes are design to hold custome data for custome code
+        (typically client side JS) to process -->

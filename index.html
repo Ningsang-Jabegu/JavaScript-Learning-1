@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #project-1 {
+        height: max-content;
+        width: auto;
+        background-color: #2a364f;
+        color: aliceblue;
+        padding: 1em;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    #project-1 .p1-para {
+        font-size: 15pt;
+        text-align: center;
+    }
+
+    #project-1 .p1-button {
+        padding: .3em 1em;
+        border: none;
+        border-radius: 1em;
+        font-weight: bold;
+        background-color: rgb(139, 179, 213);
+    }
+
+    #project-1 .p1-main-container {
+        display: flex;
+        gap: 1em;
+        max-width: 50%;
+        margin: auto;
+    }
+    #challenge-2 {
+        font-family: 'Inconsolata', sans-serif;
+        background: #2a364f;
+        display: grid;
+        place-content: center;
+    }
+
+    .main-div {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: azure;
+    }
+</style>
+
+<body>
+    <section id="project-1">
+        <p class="p1-para">Click the button to display a date after changing the hours</p>
+        <div class="p1-main-container">
+            <button onclick="myFunction()" class="p1-button">Try it</button>
+            <p id="demo"></p>
+            <p id="time"></p>
+            <button onclick="goback()" class="p1-button">Go Back</button>
+        </div>
+        <hr>
+    </section>
+
+    <!-- <section id="challenge-2">
+        <div class="main-div">
+            <div class="child-one">
+                <p>I am child one</p>
+            </div>
+            <div class="child-two">
+                <p>I am child two</p>
+            </div>
+            <div class="child-three">
+                <p>I am child three</p>
+            </div>
+        </div>
+    </section>
+    <div class="jbg">
+
+    </div> -->
+
+    <!-- 
+        Elements Child Node?
+        -> document.body.hasChildNodes()
+        How to find child in DOM Tree
+        -> document.body.children
+        -> document.body.firstChild
+        How to get parent
+        -> document.body.parentNode;
+        How to get sibling
+        -> document.body.nextSibling;
+        -> document.body.previousSibling;
+     -->
+    <!-- <h1 class="changeMe-H1">Change the content of H1</h1>
+     <button onclick="changeH1()">Click Me</button>
+     -->
+
+    <div class="parentDiv" id="parentId">
+        <div class="childDiv" id="childId"></div>
+    </div>
+    <script>
+
+        // function myFunction() {
+        //     var d = new Date();
+        //     d.setHours(1);
+
+        //     document.getElementById("demo").innerHTML = d;
+        // }
+
+
+        var t = new Date().toLocaleTimeString();
+        document.getElementById('time').innerHTML = t;
+
+        // var d = new Date().toLocaleDateString();
+        // document.getElementById('demo').innerHTML = d;
+
+        // to run like watch 
+        (function () {
+            setInterval(() => {
+                // console.log(new Date().toLocaleTimeString());
+                var d = new Date().toLocaleTimeString();
+                document.getElementById('demo').innerHTML = d;
+            }, 1000)
+        })();
+        function goback() {
+            window.history.back();
+        }
+        function changeH1() {
+            //searched
+            document.querySelector(".changeMe-H1").innerHTML = "HI content changed";
+            ///referenced
+            // const headingChanged = document.querySelector(".changeMe-H1");
+            // headingChanged.innerHTML = "HI content changed";
+            // / we can do it by id, class, tagname, name attribute, querySelector, querySelectorAll
+            // / queryselectorAll () will give the total no of element
+        }
+    </script>
+</body>
+
+</html>
